@@ -1,16 +1,208 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
-    <title>موقعي</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مترجم مباشر</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 38px;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .translator {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .languages {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        select {
+            flex: 1;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            background: white;
+        }
+
+        .boxes {
+            display: flex;
+            gap: 20px;
+        }
+
+        textarea {
+            width: 50%;
+            height: 250px;
+            resize: vertical;
+            padding: 18px;
+            font-size: 18px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            outline: none;
+        }
+
+        textarea:focus,
+        select:focus {
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: #2563eb;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+
+        @media (max-width: 700px) {
+            .boxes {
+                flex-direction: column;
+            }
+
+            textarea {
+                width: 100%;
+            }
+
+            .languages {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>أهلاً وسهلاً 👋</h1>
+<header>
+    <h1>🌍 مترجم مباشر</h1>
+    <p>ترجم النصوص بسهولة بين اللغات</p>
+</header>
 
-    <p>هذا أول موقع إلي!</p>
+<div class="container">
 
-    <button>اضغط هنا</button>
+    <div class="translator">
+
+        <div class="languages">
+
+            <select id="fromLanguage">
+                <option value="auto">اكتشاف اللغة تلقائيًا</option>
+                <option value="ar">العربية</option>
+                <option value="en">الإنجليزية</option>
+                <option value="fr">الفرنسية</option>
+                <option value="es">الإسبانية</option>
+                <option value="de">الألمانية</option>
+                <option value="tr">التركية</option>
+                <option value="it">الإيطالية</option>
+                <option value="ru">الروسية</option>
+                <option value="zh">الصينية</option>
+                <option value="ja">اليابانية</option>
+            </select>
+
+            <select id="toLanguage">
+                <option value="en">الإنجليزية</option>
+                <option value="ar">العربية</option>
+                <option value="fr">الفرنسية</option>
+                <option value="es">الإسبانية</option>
+                <option value="de">الألمانية</option>
+                <option value="tr">التركية</option>
+                <option value="it">الإيطالية</option>
+                <option value="ru">الروسية</option>
+                <option value="zh">الصينية</option>
+                <option value="ja">اليابانية</option>
+            </select>
+
+        </div>
+
+        <div class="boxes">
+
+            <textarea id="inputText"
+                placeholder="اكتب النص الذي تريد ترجمته هنا..."></textarea>
+
+            <textarea id="outputText"
+                placeholder="ستظهر الترجمة هنا..."
+                readonly></textarea>
+
+        </div>
+
+        <button onclick="translateText()">
+            🔄 ترجمة
+        </button>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 مترجم مباشر
+</footer>
+
+<script>
+
+function translateText() {
+
+    const text = document.getElementById("inputText").value;
+
+    if (text.trim() === "") {
+        alert("اكتب نصًا أولاً");
+        return;
+    }
+
+    document.getElementById("outputText").value =
+        "الترجمة الفعلية سيتم تفعيلها في الخطوة القادمة 🚀";
+}
+
+</script>
 
 </body>
 </html>
